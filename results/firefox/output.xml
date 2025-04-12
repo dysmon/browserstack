@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.12.3 on linux)" generated="2025-04-12T10:24:37.241894" rpa="false" schemaversion="5">
+<suite id="s1" name="Tests" source="/home/dias/Documents/kbtu/soft/browserStack/tests.robot">
+<test id="s1-t1" name="Successful Account Login" line="15">
+<kw name="Open Browser To ParaBank">
+<kw name="Get Browserstack Url" owner="browserstack_config">
+<msg time="2025-04-12T10:24:37.325373" level="INFO">${remote_url} = https://dysmon_Mlc58X:tL2LN4zxKufmEATBcRBQ@hub-cloud.browserstack.com/wd/hub</msg>
+<var>${remote_url}</var>
+<status status="PASS" start="2025-04-12T10:24:37.325073" elapsed="0.000352"/>
+</kw>
+<kw name="Get Browser Options" owner="browserstack_config">
+<msg time="2025-04-12T10:24:37.325916" level="INFO">${options} = &lt;selenium.webdriver.firefox.options.Options object at 0x737416b4e8a0&gt;</msg>
+<var>${options}</var>
+<arg>${BROWSER}</arg>
+<status status="PASS" start="2025-04-12T10:24:37.325631" elapsed="0.000325"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-12T10:24:37.327158" level="INFO">Opening browser 'firefox' to base url 'https://parabank.parasoft.com/parabank/index.htm' through remote server at 'https://dysmon_Mlc58X:tL2LN4zxKufmEATBcRBQ@hub-cloud.browserstack.com/wd/hub'.</msg>
+<arg>${PARABANK_URL}</arg>
+<arg>browser=${BROWSER.lower()}</arg>
+<arg>remote_url=${remote_url}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-12T10:24:37.326162" elapsed="17.458247"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1280</arg>
+<arg>1024</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-04-12T10:24:54.784855" elapsed="0.544048"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>15 seconds</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-04-12T10:24:55.329331" elapsed="0.317626"/>
+</kw>
+<status status="PASS" start="2025-04-12T10:24:37.323912" elapsed="18.323310"/>
+</kw>
+<kw name="Login With Credentials">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>name=username</arg>
+<arg>timeout=15</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-12T10:24:55.648424" elapsed="0.878162"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-12T10:24:56.527526" level="INFO">Typing text 'Modern_qwerty' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T10:24:56.526994" elapsed="0.954422"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-04-12T10:24:57.482366" level="INFO">Typing password into text field 'name=password'.</msg>
+<msg time="2025-04-12T10:24:58.095729" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>name=password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T10:24:57.481836" elapsed="0.922694"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-12T10:24:58.405313" level="INFO">Clicking button 'css=input[value='Log In']'.</msg>
+<arg>css=input[value='Log In']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T10:24:58.404938" elapsed="2.217177"/>
+</kw>
+<arg>${VALID_USERNAME}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<status status="PASS" start="2025-04-12T10:24:55.647760" elapsed="4.974626"/>
+</kw>
+<kw name="Verify Accounts Overview Page Loaded">
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Accounts Overview</arg>
+<arg>timeout=15</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-04-12T10:25:00.623339" elapsed="0.544473"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>id=accountTable</arg>
+<arg>timeout=15</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-12T10:25:01.168217" elapsed="0.921113"/>
+</kw>
+<status status="PASS" start="2025-04-12T10:25:00.622915" elapsed="1.466757"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2025-04-12T10:25:02.090766" elapsed="0.000199"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-12T10:25:02.091255" elapsed="2.833140"/>
+</kw>
+<arg>Run Keyword If Test Failed</arg>
+<arg>Capture Page Screenshot</arg>
+<arg>AND</arg>
+<arg>Close Browser</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-04-12T10:25:02.090311" elapsed="2.834259"/>
+</kw>
+<doc>Verify user can login</doc>
+<status status="PASS" start="2025-04-12T10:24:37.323234" elapsed="27.601498"/>
+</test>
+<test id="s1-t2" name="Balance Check" line="21">
+<kw name="Open Browser To ParaBank">
+<kw name="Get Browserstack Url" owner="browserstack_config">
+<msg time="2025-04-12T10:25:04.926727" level="INFO">${remote_url} = https://dysmon_Mlc58X:tL2LN4zxKufmEATBcRBQ@hub-cloud.browserstack.com/wd/hub</msg>
+<var>${remote_url}</var>
+<status status="PASS" start="2025-04-12T10:25:04.926517" elapsed="0.000257"/>
+</kw>
+<kw name="Get Browser Options" owner="browserstack_config">
+<msg time="2025-04-12T10:25:04.927153" level="INFO">${options} = &lt;selenium.webdriver.firefox.options.Options object at 0x737416b72480&gt;</msg>
+<var>${options}</var>
+<arg>${BROWSER}</arg>
+<status status="PASS" start="2025-04-12T10:25:04.926923" elapsed="0.000266"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-04-12T10:25:04.928327" level="INFO">Opening browser 'firefox' to base url 'https://parabank.parasoft.com/parabank/index.htm' through remote server at 'https://dysmon_Mlc58X:tL2LN4zxKufmEATBcRBQ@hub-cloud.browserstack.com/wd/hub'.</msg>
+<arg>${PARABANK_URL}</arg>
+<arg>browser=${BROWSER.lower()}</arg>
+<arg>remote_url=${remote_url}</arg>
+<arg>options=${options}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-04-12T10:25:04.927377" elapsed="11.294151"/>
+</kw>
+<kw name="Set Window Size" owner="SeleniumLibrary">
+<arg>1280</arg>
+<arg>1024</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" start="2025-04-12T10:25:16.221963" elapsed="0.305771"/>
+</kw>
+<kw name="Set Selenium Timeout" owner="SeleniumLibrary">
+<arg>15 seconds</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" start="2025-04-12T10:25:16.528165" elapsed="0.307831"/>
+</kw>
+<status status="PASS" start="2025-04-12T10:25:04.926115" elapsed="11.910142"/>
+</kw>
+<kw name="Login With Credentials">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>name=username</arg>
+<arg>timeout=15</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-12T10:25:16.837360" elapsed="0.919891"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-04-12T10:25:17.758251" level="INFO">Typing text 'Modern_qwerty' into text field 'name=username'.</msg>
+<arg>name=username</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T10:25:17.757685" elapsed="1.024703"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2025-04-12T10:25:18.783162" level="INFO">Typing password into text field 'name=password'.</msg>
+<msg time="2025-04-12T10:25:19.600282" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>name=password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T10:25:18.782752" elapsed="1.194626"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-04-12T10:25:19.978337" level="INFO">Clicking button 'css=input[value='Log In']'.</msg>
+<arg>css=input[value='Log In']</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T10:25:19.977929" elapsed="2.062321"/>
+</kw>
+<arg>${VALID_USERNAME}</arg>
+<arg>${VALID_PASSWORD}</arg>
+<status status="PASS" start="2025-04-12T10:25:16.836765" elapsed="5.203733"/>
+</kw>
+<kw name="Get Account Balance">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=#accountTable tr:first-child td:nth-child(2)</arg>
+<arg>timeout=15</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-12T10:25:22.041540" elapsed="1.608203"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2025-04-12T10:25:24.339917" level="INFO">${balance_text} = $515.50</msg>
+<var>${balance_text}</var>
+<arg>css=#accountTable tr:first-child td:nth-child(2)</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T10:25:23.650089" elapsed="0.689904"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-04-12T10:25:24.340988" level="INFO">${clean_balance} = 515.50</msg>
+<var>${clean_balance}</var>
+<arg>${balance_text}</arg>
+<arg>$</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-04-12T10:25:24.340281" elapsed="0.000747"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-04-12T10:25:24.341683" level="INFO">${clean_balance} = 515.50</msg>
+<var>${clean_balance}</var>
+<arg>${clean_balance}</arg>
+<arg>,</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-04-12T10:25:24.341171" elapsed="0.000547"/>
+</kw>
+<return>
+<value>${clean_balance}</value>
+<status status="PASS" start="2025-04-12T10:25:24.341806" elapsed="0.000101"/>
+</return>
+<msg time="2025-04-12T10:25:24.342105" level="INFO">${balance} = 515.50</msg>
+<var>${balance}</var>
+<status status="PASS" start="2025-04-12T10:25:22.041051" elapsed="2.301090"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Account Balance: ${balance}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-04-12T10:25:24.342358" elapsed="0.000236"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-04-12T10:25:24.342912" level="INFO">Length is 6.</msg>
+<arg>${balance}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-04-12T10:25:24.342755" elapsed="0.000216"/>
+</kw>
+<kw name="Logout From Application">
+<kw name="Click Link" owner="SeleniumLibrary">
+<msg time="2025-04-12T10:25:24.343813" level="INFO">Clicking link 'css=a[href*='logout.htm']'.</msg>
+<arg>css=a[href*='logout.htm']</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<status status="PASS" start="2025-04-12T10:25:24.343533" elapsed="1.748771"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>name=username</arg>
+<arg>timeout=15</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-04-12T10:25:26.092724" elapsed="0.641980"/>
+</kw>
+<status status="PASS" start="2025-04-12T10:25:24.343213" elapsed="2.391740"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Run Keyword If Test Failed" owner="BuiltIn">
+<arg>Capture Page Screenshot</arg>
+<doc>Runs the given keyword with the given arguments, if the test failed.</doc>
+<status status="PASS" start="2025-04-12T10:25:26.735863" elapsed="0.000104"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-12T10:25:26.736122" elapsed="2.130631"/>
+</kw>
+<arg>Run Keyword If Test Failed</arg>
+<arg>Capture Page Screenshot</arg>
+<arg>AND</arg>
+<arg>Close Browser</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-04-12T10:25:26.735515" elapsed="2.131396"/>
+</kw>
+<doc>View account balance</doc>
+<status status="PASS" start="2025-04-12T10:25:04.925506" elapsed="23.941564"/>
+</test>
+<status status="PASS" start="2025-04-12T10:24:37.242716" elapsed="51.625370"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Tests" id="s1" pass="2" fail="0" skip="0">Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
